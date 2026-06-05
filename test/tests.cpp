@@ -84,3 +84,4 @@ TEST(PoolCostsTest, TotalCostPositive) {
     poolCosts(concrete, fence);
     EXPECT_GT(concrete + fence, 0.0);
 }
+
