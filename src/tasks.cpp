@@ -4,7 +4,7 @@
 #include "circle.h"
 #include <cmath>
 
-const double EARTH_RADIUS = 6378.1 * 1000.0;  // в метрах
+const double EARTH_RADIUS = 6378.1 * 1000.0;
 
 double ropeGap() {
     Circle earth(EARTH_RADIUS);
