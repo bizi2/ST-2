@@ -7,3 +7,4 @@ double ropeGap();
 void poolCosts(double& concreteCost, double& fenceCost);
 
 #endif  // INCLUDE_TASKS_H_
+

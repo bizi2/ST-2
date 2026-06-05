@@ -29,3 +29,4 @@ void poolCosts(double& concreteCost, double& fenceCost) {
     concreteCost = pathArea * CONCRETE_PRICE;
     fenceCost = fenceLength * FENCE_PRICE;
 }
+
