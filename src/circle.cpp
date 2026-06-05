@@ -30,3 +30,4 @@ void Circle::setArea(double area) {
 double Circle::getRadius() const { return radius_; }
 double Circle::getCircumference() const { return circumference_; }
 double Circle::getArea() const { return area_; }
+
