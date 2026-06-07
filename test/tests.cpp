@@ -1,4 +1,5 @@
 // Copyright 2025 UNN-CS
+// Nazyrov A.A.
 
 #include <gtest/gtest.h>
 #include "circle.h"
@@ -47,13 +48,13 @@ TEST(CircleDataTest, ZeroRadius) {
     EXPECT_DOUBLE_EQ(c.getA(), 0.0);
 }
 
-TEST(CircleDataTest, NegativeRadiusIgnored) {
+TEST(CircleDataTest, SetNegativeRadiusDoesNothing) {
     CircleData c(5.0);
     c.setR(-10.0);
     EXPECT_DOUBLE_EQ(c.getR(), 5.0);
 }
 
-TEST(CircleDataTest, NegativeCircumferenceIgnored) {
+TEST(CircleDataTest, SetNegativeCircumferenceDoesNothing) {
     CircleData c(5.0);
     double oldR = c.getR();
     c.setC(-100.0);
@@ -115,18 +116,17 @@ TEST(PoolCostsTest, DifferentPrices) {
     double c1 = 0.0, f1 = 0.0;
     double c2 = 0.0, f2 = 0.0;
     calcPoolCosts(c1, f1);
-
+    
     const double POOL_R = 3.0;
     const double PATH_W = 1.0;
     CircleData pool(POOL_R);
     CircleData total(POOL_R + PATH_W);
     double pathArea = total.getA() - pool.getA();
     double fenceLen = total.getC();
-
+    
     c2 = pathArea * 2000.0;
     f2 = fenceLen * 4000.0;
-
+    
     EXPECT_DOUBLE_EQ(c2, c1 * 2.0);
     EXPECT_DOUBLE_EQ(f2, f1 * 2.0);
 }
-

@@ -1,8 +1,8 @@
 // Copyright 2025 UNN-CS
-
-#include <cmath>
+// Nazyrov A.A.
 
 #include "circle.h"
+#include <cmath>
 
 const double PI_VAL = 3.14159265358979323846;
 
@@ -26,18 +26,24 @@ void CircleData::updateAllFromA() {
 }
 
 void CircleData::setR(double r) {
-    rad_val = r;
-    updateAllFromR();
+    if (r >= 0.0) {
+        rad_val = r;
+        updateAllFromR();
+    }
 }
 
 void CircleData::setC(double c) {
-    circ_val = c;
-    updateAllFromC();
+    if (c >= 0.0) {
+        circ_val = c;
+        updateAllFromC();
+    }
 }
 
 void CircleData::setA(double a) {
-    area_val = a;
-    updateAllFromA();
+    if (a >= 0.0) {
+        area_val = a;
+        updateAllFromA();
+    }
 }
 
 double CircleData::getR() const { return rad_val; }
