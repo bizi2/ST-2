@@ -1,35 +1,34 @@
 // Copyright 2025 UNN-CS
 
-#include <cmath>
-
 #include "tasks.h"
 #include "circle.h"
+#include <cmath>
 
+const double EARTH_R = 6378.1 * 1000.0;
 
-
-const double EARTH_RADIUS = 6378.1 * 1000.0;
-
-double ropeGap() {
-    Circle earth(EARTH_RADIUS);
-    double newLength = earth.getCircumference() + 1.0;
-    Circle newCircle(0.0);
-    newCircle.setCircumference(newLength);
-    return newCircle.getRadius() - EARTH_RADIUS;
+double calcRopeGap() {
+    CircleData earthObj(EARTH_R);
+    double oldLen = earthObj.getC();
+    double newLen = oldLen + 1.0;
+    CircleData newObj(0.0);
+    newObj.setC(newLen);
+    return newObj.getR() - EARTH_R;
 }
 
-void poolCosts(double& concreteCost, double& fenceCost) {
-    const double POOL_RADIUS = 3.0;
-    const double PATH_WIDTH = 1.0;
-    const double CONCRETE_PRICE = 1000.0;
-    const double FENCE_PRICE = 2000.0;
-
-    Circle pool(POOL_RADIUS);
-    Circle withPath(POOL_RADIUS + PATH_WIDTH);
-
-    double pathArea = withPath.getArea() - pool.getArea();
-    double fenceLength = withPath.getCircumference();
-
-    concreteCost = pathArea * CONCRETE_PRICE;
-    fenceCost = fenceLength * FENCE_PRICE;
+void calcPoolCosts(double& concreteOut, double& fenceOut) {
+    const double POOL_R = 3.0;
+    const double PATH_W = 1.0;
+    const double CONCRETE_PR = 1000.0;
+    const double FENCE_PR = 2000.0;
+    
+    CircleData poolObj(POOL_R);
+    CircleData totalObj(POOL_R + PATH_W);
+    
+    double poolAreaVal = poolObj.getA();
+    double totalAreaVal = totalObj.getA();
+    double pathAreaVal = totalAreaVal - poolAreaVal;
+    double fenceLenVal = totalObj.getC();
+    
+    concreteOut = pathAreaVal * CONCRETE_PR;
+    fenceOut = fenceLenVal * FENCE_PR;
 }
-

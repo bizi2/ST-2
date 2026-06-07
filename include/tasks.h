@@ -1,9 +1,10 @@
 // Copyright 2025 UNN-CS
+// Nazyrov A.A.
 
-#ifndef INCLUDE_TASKS_H_
-#define INCLUDE_TASKS_H_
+#ifndef TASKS_HEADER_H
+#define TASKS_HEADER_H
 
-double ropeGap();
-void poolCosts(double& concreteCost, double& fenceCost);
+double calcRopeGap();
+void calcPoolCosts(double& cost1, double& cost2);
 
-#endif  // INCLUDE_TASKS_H_
+#endif

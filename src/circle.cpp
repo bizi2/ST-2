@@ -3,34 +3,42 @@
 #include "circle.h"
 #include <cmath>
 
-const double PI = 3.14159265358979323846;
+const double PI_VAL = 3.14159265358979323846;
 
-Circle::Circle(double radius) {
-    setRadius(radius);
+CircleData::CircleData(double r) {
+    setR(r);
 }
 
-void Circle::setRadius(double radius) {
-    radius_ = radius;
-    circumference_ = 2.0 * PI * radius_;
-    area_ = PI * radius_ * radius_;
+void CircleData::updateAllFromR() {
+    circ_val = 2.0 * PI_VAL * rad_val;
+    area_val = PI_VAL * rad_val * rad_val;
 }
 
-void Circle::setCircumference(double circumference) {
-    circumference_ = circumference;
-    radius_ = circumference_ / (2.0 * PI);
-    area_ = PI * radius_ * radius_;
+void CircleData::updateAllFromC() {
+    rad_val = circ_val / (2.0 * PI_VAL);
+    area_val = PI_VAL * rad_val * rad_val;
 }
 
-void Circle::setArea(double area) {
-    area_ = area;
-    radius_ = std::sqrt(area_ / PI);
-    circumference_ = 2.0 * PI * radius_;
+void CircleData::updateAllFromA() {
+    rad_val = std::sqrt(area_val / PI_VAL);
+    circ_val = 2.0 * PI_VAL * rad_val;
 }
 
-double Circle::getRadius() const { return radius_; }
-double Circle::getCircumference() const { return circumference_; }
-double Circle::getArea() const { return area_; }
+void CircleData::setR(double r) {
+    rad_val = r;
+    updateAllFromR();
+}
 
+void CircleData::setC(double c) {
+    circ_val = c;
+    updateAllFromC();
+}
 
+void CircleData::setA(double a) {
+    area_val = a;
+    updateAllFromA();
+}
 
-
+double CircleData::getR() const { return rad_val; }
+double CircleData::getC() const { return circ_val; }
+double CircleData::getA() const { return area_val; }
