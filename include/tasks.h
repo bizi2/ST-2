@@ -1,5 +1,4 @@
 // Copyright 2025 UNN-CS
-// Nazyrov A.A.
 
 #ifndef TASKS_HEADER_H
 #define TASKS_HEADER_H

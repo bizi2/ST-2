@@ -1,5 +1,4 @@
 // Copyright 2025 UNN-CS
-// Nazyrov A.A.
 
 #ifndef CIRCLE_HEADER_H
 #define CIRCLE_HEADER_H

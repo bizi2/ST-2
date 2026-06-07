@@ -1,7 +1,8 @@
 // Copyright 2025 UNN-CS
 
-#include "circle.h"
 #include <cmath>
+
+#include "circle.h"
 
 const double PI_VAL = 3.14159265358979323846;
 
