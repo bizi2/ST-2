@@ -21,15 +21,16 @@ void calcPoolCosts(double& concreteOut, double& fenceOut) {
     const double PATH_W = 1.0;
     const double CONCRETE_PR = 1000.0;
     const double FENCE_PR = 2000.0;
-    
+
     CircleData poolObj(POOL_R);
     CircleData totalObj(POOL_R + PATH_W);
-    
+
     double poolAreaVal = poolObj.getA();
     double totalAreaVal = totalObj.getA();
     double pathAreaVal = totalAreaVal - poolAreaVal;
     double fenceLenVal = totalObj.getC();
-    
+
     concreteOut = pathAreaVal * CONCRETE_PR;
     fenceOut = fenceLenVal * FENCE_PR;
 }
+

@@ -1,9 +1,11 @@
 // Copyright 2025 UNN-CS
+// Nazyrov A.A.
 
-#ifndef TASKS_HEADER_H
-#define TASKS_HEADER_H
+#ifndef INCLUDE_TASKS_H_
+#define INCLUDE_TASKS_H_
 
 double calcRopeGap();
 void calcPoolCosts(double& cost1, double& cost2);
 
-#endif
+#endif  // INCLUDE_TASKS_H_
+
