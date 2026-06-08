@@ -28,3 +28,4 @@ class MyCircle {
 
 #endif  // INCLUDE_CIRCLE_H_
 
+

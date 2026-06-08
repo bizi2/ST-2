@@ -3,6 +3,7 @@
 
 #include "circle.h"
 #include "tasks.h"
+
 #include <gtest/gtest.h>
 
 TEST(MyCircleTest, ConstructorWithRadius) {
@@ -47,6 +48,43 @@ TEST(MyCircleTest, SetAreaPositive) {
     EXPECT_DOUBLE_EQ(fig.getRad(), 3.0);
 }
 
+TEST(MyCircleTest, SetRadiusNegativeIgnored) {
+    MyCircle fig(5.0);
+    fig.setRad(-10.0);
+    EXPECT_DOUBLE_EQ(fig.getRad(), 5.0);
+}
+
+TEST(MyCircleTest, SetLengthNegativeIgnored) {
+    MyCircle fig(5.0);
+    double oldR = fig.getRad();
+    fig.setLen(-100.0);
+    EXPECT_DOUBLE_EQ(fig.getRad(), oldR);
+}
+
+TEST(MyCircleTest, SetAreaNegativeIgnored) {
+    MyCircle fig(5.0);
+    double oldR = fig.getRad();
+    fig.setSq(-50.0);
+    EXPECT_DOUBLE_EQ(fig.getRad(), oldR);
+}
+
+TEST(MyCircleTest, ZeroRadius) {
+    MyCircle fig(0.0);
+    EXPECT_DOUBLE_EQ(fig.getRad(), 0.0);
+    EXPECT_DOUBLE_EQ(fig.getLen(), 0.0);
+    EXPECT_DOUBLE_EQ(fig.getSq(), 0.0);
+}
+
+TEST(MyCircleTest, LargeRadius) {
+    MyCircle fig(10000.0);
+    EXPECT_DOUBLE_EQ(fig.getRad(), 10000.0);
+}
+
+TEST(MyCircleTest, SmallRadius) {
+    MyCircle fig(0.001);
+    EXPECT_DOUBLE_EQ(fig.getRad(), 0.001);
+}
+
 TEST(EarthRopeTest, GapPositive) {
     double gap = calcRopeGap();
     EXPECT_GT(gap, 0.0);
@@ -79,5 +117,10 @@ TEST(PoolCostTest, FenceExpected) {
     double concrete = 0.0, fence = 0.0;
     calcPoolCosts(concrete, fence);
     EXPECT_NEAR(fence, 50265.0, 10.0);
+}
+
+int main(int argc, char** argv) {
+    ::testing::InitGoogleTest(&argc, argv);
+    return RUN_ALL_TESTS();
 }
 

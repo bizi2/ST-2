@@ -34,3 +34,4 @@ void calcPoolCosts(double& concreteCost, double& fenceCost) {
     fenceCost = fenceLenNum * FENCE_PRICE_VAL;
 }
 
+
