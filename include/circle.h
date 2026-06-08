@@ -1,30 +1,30 @@
 // Copyright 2025 UNN-CS
 // Nazyrov A.A.
 
-#ifndef INCLUDE_CIRCLE_H_
-#define INCLUDE_CIRCLE_H_
+#ifndef CUSTOM_CIRCLE_H
+#define CUSTOM_CIRCLE_H
 
-class CircleData {
- private:
-    double rad_val;
-    double circ_val;
-    double area_val;
-
-    void updateAllFromR();
-    void updateAllFromC();
-    void updateAllFromA();
-
- public:
-    explicit CircleData(double r);
-
-    void setR(double r);
-    void setC(double c);
-    void setA(double a);
-
-    double getR() const;
-    double getC() const;
-    double getA() const;
+class MyCircle {
+private:
+    double r_value;
+    double len_value;
+    double sq_value;
+    
+    void refreshFromR();
+    void refreshFromLen();
+    void refreshFromSq();
+    
+public:
+    explicit MyCircle(double rad);
+    
+    void setRad(double rad);
+    void setLen(double len);
+    void setSq(double sq);
+    
+    double getRad() const;
+    double getLen() const;
+    double getSq() const;
 };
 
-#endif  // INCLUDE_CIRCLE_H_
+#endif
 

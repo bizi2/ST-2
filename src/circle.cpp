@@ -4,48 +4,49 @@
 #include "circle.h"
 #include <cmath>
 
-const double PI_VAL = 3.14159265358979323846;
+const double PI_NUM = 3.14159265358979323846;
 
-CircleData::CircleData(double r) {
-    setR(r);
+MyCircle::MyCircle(double rad) {
+    setRad(rad);
 }
 
-void CircleData::updateAllFromR() {
-    circ_val = 2.0 * PI_VAL * rad_val;
-    area_val = PI_VAL * rad_val * rad_val;
+void MyCircle::refreshFromR() {
+    len_value = 2.0 * PI_NUM * r_value;
+    sq_value = PI_NUM * r_value * r_value;
 }
 
-void CircleData::updateAllFromC() {
-    rad_val = circ_val / (2.0 * PI_VAL);
-    area_val = PI_VAL * rad_val * rad_val;
+void MyCircle::refreshFromLen() {
+    r_value = len_value / (2.0 * PI_NUM);
+    sq_value = PI_NUM * r_value * r_value;
 }
 
-void CircleData::updateAllFromA() {
-    rad_val = std::sqrt(area_val / PI_VAL);
-    circ_val = 2.0 * PI_VAL * rad_val;
+void MyCircle::refreshFromSq() {
+    r_value = std::sqrt(sq_value / PI_NUM);
+    len_value = 2.0 * PI_NUM * r_value;
 }
 
-void CircleData::setR(double r) {
-    if (r >= 0.0) {
-        rad_val = r;
-        updateAllFromR();
+void MyCircle::setRad(double rad) {
+    if (rad >= 0.0) {
+        r_value = rad;
+        refreshFromR();
     }
 }
 
-void CircleData::setC(double c) {
-    if (c >= 0.0) {
-        circ_val = c;
-        updateAllFromC();
+void MyCircle::setLen(double len) {
+    if (len >= 0.0) {
+        len_value = len;
+        refreshFromLen();
     }
 }
 
-void CircleData::setA(double a) {
-    if (a >= 0.0) {
-        area_val = a;
-        updateAllFromA();
+void MyCircle::setSq(double sq) {
+    if (sq >= 0.0) {
+        sq_value = sq;
+        refreshFromSq();
     }
 }
 
-double CircleData::getR() const { return rad_val; }
-double CircleData::getC() const { return circ_val; }
-double CircleData::getA() const { return area_val; }
+double MyCircle::getRad() const { return r_value; }
+double MyCircle::getLen() const { return len_value; }
+double MyCircle::getSq() const { return sq_value; }
+

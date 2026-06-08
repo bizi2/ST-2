@@ -148,11 +148,9 @@ TEST(MyCircleTest, ConsistencyCheck) {
     double r1 = fig.getRad();
     double l1 = fig.getLen();
     double a1 = fig.getSq();
-    
     fig.setLen(l1);
     EXPECT_DOUBLE_EQ(fig.getRad(), r1);
     EXPECT_DOUBLE_EQ(fig.getSq(), a1);
-    
     fig.setSq(a1);
     EXPECT_DOUBLE_EQ(fig.getRad(), r1);
     EXPECT_DOUBLE_EQ(fig.getLen(), l1);
@@ -231,15 +229,12 @@ TEST(PoolCostTest, DoublePrice) {
     double c1 = 0.0, f1 = 0.0;
     double c2 = 0.0, f2 = 0.0;
     calcPoolCosts(c1, f1);
-    
     MyCircle pool(3.0);
     MyCircle total(4.0);
     double pathArea = total.getSq() - pool.getSq();
     double fenceLen = total.getLen();
-    
     c2 = pathArea * 2000.0;
     f2 = fenceLen * 4000.0;
-    
     EXPECT_DOUBLE_EQ(c2, c1 * 2.0);
     EXPECT_DOUBLE_EQ(f2, f1 * 2.0);
 }
@@ -247,15 +242,12 @@ TEST(PoolCostTest, DoublePrice) {
 TEST(PoolCostTest, DifferentRadius) {
     double c1 = 0.0, f1 = 0.0;
     calcPoolCosts(c1, f1);
-    
     MyCircle pool(5.0);
     MyCircle total(6.0);
     double pathArea = total.getSq() - pool.getSq();
     double fenceLen = total.getLen();
-    
     double concrete2 = pathArea * 1000.0;
     double fence2 = fenceLen * 2000.0;
-    
     EXPECT_GT(concrete2, c1);
     EXPECT_GT(fence2, f1);
 }
@@ -263,15 +255,12 @@ TEST(PoolCostTest, DifferentRadius) {
 TEST(PoolCostTest, WiderPath) {
     double c1 = 0.0, f1 = 0.0;
     calcPoolCosts(c1, f1);
-    
     MyCircle pool(3.0);
     MyCircle total(5.0);
     double pathArea = total.getSq() - pool.getSq();
     double fenceLen = total.getLen();
-    
     double concrete2 = pathArea * 1000.0;
     double fence2 = fenceLen * 2000.0;
-    
     EXPECT_GT(concrete2, c1);
     EXPECT_GT(fence2, f1);
 }
@@ -280,4 +269,3 @@ int main(int argc, char** argv) {
     ::testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }
-
