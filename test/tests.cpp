@@ -1,9 +1,9 @@
 // Copyright 2025 UNN-CS
 // Nazyrov A.A.
+
+#include "circle.h"
 #include "tasks.h"
 #include <gtest/gtest.h>
-#include "circle.h"
-
 
 TEST(MyCircleTest, ConstructorWithRadius) {
     MyCircle fig(5.0);
