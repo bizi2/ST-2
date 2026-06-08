@@ -1,8 +1,9 @@
 // Copyright 2025 UNN-CS
 // Nazyrov A.A.
 
-#include "circle.h"
 #include <cmath>
+#include "circle.h"
+
 
 const double PI_NUM = 3.14159265358979323846;
 
