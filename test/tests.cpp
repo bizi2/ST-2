@@ -1,10 +1,9 @@
 // Copyright 2025 UNN-CS
 // Nazyrov A.A.
 
+#include <gtest/gtest.h>
 #include "circle.h"
 #include "tasks.h"
-
-#include <gtest/gtest.h>
 
 TEST(MyCircleTest, ConstructorWithRadius) {
     MyCircle fig(5.0);
@@ -117,10 +116,5 @@ TEST(PoolCostTest, FenceExpected) {
     double concrete = 0.0, fence = 0.0;
     calcPoolCosts(concrete, fence);
     EXPECT_NEAR(fence, 50265.0, 10.0);
-}
-
-int main(int argc, char** argv) {
-    ::testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
 }
 
