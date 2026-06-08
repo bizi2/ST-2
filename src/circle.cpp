@@ -11,43 +11,42 @@ MyCircle::MyCircle(double rad) {
 }
 
 void MyCircle::refreshFromR() {
-    len_value = 2.0 * PI_NUM * r_value;
-    sq_value = PI_NUM * r_value * r_value;
+    len_val = 2.0 * PI_NUM * rad_val;
+    sq_val = PI_NUM * rad_val * rad_val;
 }
 
 void MyCircle::refreshFromLen() {
-    r_value = len_value / (2.0 * PI_NUM);
-    sq_value = PI_NUM * r_value * r_value;
+    rad_val = len_val / (2.0 * PI_NUM);
+    sq_val = PI_NUM * rad_val * rad_val;
 }
 
 void MyCircle::refreshFromSq() {
-    r_value = std::sqrt(sq_value / PI_NUM);
-    len_value = 2.0 * PI_NUM * r_value;
+    rad_val = std::sqrt(sq_val / PI_NUM);
+    len_val = 2.0 * PI_NUM * rad_val;
 }
 
 void MyCircle::setRad(double rad) {
     if (rad >= 0.0) {
-        r_value = rad;
+        rad_val = rad;
         refreshFromR();
     }
 }
 
 void MyCircle::setLen(double len) {
     if (len >= 0.0) {
-        len_value = len;
+        len_val = len;
         refreshFromLen();
     }
 }
 
 void MyCircle::setSq(double sq) {
     if (sq >= 0.0) {
-        sq_value = sq;
+        sq_val = sq;
         refreshFromSq();
     }
 }
 
-double MyCircle::getRad() const { return r_value; }
-double MyCircle::getLen() const { return len_value; }
-double MyCircle::getSq() const { return sq_value; }
-
+double MyCircle::getRad() const { return rad_val; }
+double MyCircle::getLen() const { return len_val; }
+double MyCircle::getSq() const { return sq_val; }
 

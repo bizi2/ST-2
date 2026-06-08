@@ -3,6 +3,7 @@
 
 #include "tasks.h"
 #include "circle.h"
+
 #include <cmath>
 
 const double EARTH_RADIUS_M = 6378.1 * 1000.0;
@@ -21,15 +22,15 @@ void calcPoolCosts(double& concreteCost, double& fenceCost) {
     const double PATH_WIDTH_VAL = 1.0;
     const double BETON_PRICE = 1000.0;
     const double FENCE_PRICE_VAL = 2000.0;
-    
+
     MyCircle poolObj(POOL_RADIUS_VAL);
     MyCircle totalObj(POOL_RADIUS_VAL + PATH_WIDTH_VAL);
-    
+
     double poolAreaNum = poolObj.getSq();
     double totalAreaNum = totalObj.getSq();
     double pathAreaNum = totalAreaNum - poolAreaNum;
     double fenceLenNum = totalObj.getLen();
-    
+
     concreteCost = pathAreaNum * BETON_PRICE;
     fenceCost = fenceLenNum * FENCE_PRICE_VAL;
 }
