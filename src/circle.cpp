@@ -50,3 +50,4 @@ double MyCircle::getRad() const { return r_value; }
 double MyCircle::getLen() const { return len_value; }
 double MyCircle::getSq() const { return sq_value; }
 
+

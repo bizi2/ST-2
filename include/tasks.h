@@ -1,11 +1,11 @@
 // Copyright 2025 UNN-CS
 // Nazyrov A.A.
 
-#ifndef CUSTOM_TASKS_H
-#define CUSTOM_TASKS_H
+#ifndef INCLUDE_TASKS_H_
+#define INCLUDE_TASKS_H_
 
-double earthRopeGap();
-void poolCostCalc(double& betonCost, double& fenceCost);
+double calcRopeGap();
+void calcPoolCosts(double& concreteCost, double& fenceCost);
 
-#endif
+#endif  // INCLUDE_TASKS_H_
 

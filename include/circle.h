@@ -1,14 +1,14 @@
 // Copyright 2025 UNN-CS
 // Nazyrov A.A.
 
-#ifndef CUSTOM_CIRCLE_H
-#define CUSTOM_CIRCLE_H
+#ifndef INCLUDE_CIRCLE_H_
+#define INCLUDE_CIRCLE_H_
 
 class MyCircle {
 private:
-    double r_value;
-    double len_value;
-    double sq_value;
+    double rad_val;
+    double len_val;
+    double sq_val;
     
     void refreshFromR();
     void refreshFromLen();
@@ -26,5 +26,5 @@ public:
     double getSq() const;
 };
 
-#endif
+#endif  // INCLUDE_CIRCLE_H_
 

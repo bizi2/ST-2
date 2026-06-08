@@ -5,10 +5,9 @@
 #include "circle.h"
 #include <cmath>
 
-const double EARTH_RADIUS_KM = 6378.1;
-const double EARTH_RADIUS_M = EARTH_RADIUS_KM * 1000.0;
+const double EARTH_RADIUS_M = 6378.1 * 1000.0;
 
-double earthRopeGap() {
+double calcRopeGap() {
     MyCircle earthObj(EARTH_RADIUS_M);
     double oldLen = earthObj.getLen();
     double newLenVal = oldLen + 1.0;
@@ -17,7 +16,7 @@ double earthRopeGap() {
     return tempCircle.getRad() - EARTH_RADIUS_M;
 }
 
-void poolCostCalc(double& betonCost, double& fenceCost) {
+void calcPoolCosts(double& concreteCost, double& fenceCost) {
     const double POOL_RADIUS_VAL = 3.0;
     const double PATH_WIDTH_VAL = 1.0;
     const double BETON_PRICE = 1000.0;
@@ -31,7 +30,7 @@ void poolCostCalc(double& betonCost, double& fenceCost) {
     double pathAreaNum = totalAreaNum - poolAreaNum;
     double fenceLenNum = totalObj.getLen();
     
-    betonCost = pathAreaNum * BETON_PRICE;
+    concreteCost = pathAreaNum * BETON_PRICE;
     fenceCost = fenceLenNum * FENCE_PRICE_VAL;
 }
 
