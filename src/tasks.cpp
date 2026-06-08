@@ -1,10 +1,12 @@
 // Copyright 2025 UNN-CS
 // Nazyrov A.A.
 
+#include <cmath>
+
 #include "circle.h"
 #include "tasks.h"
 
-#include <cmath>
+
 
 const double EARTH_RADIUS_M = 6378.1 * 1000.0;
 
